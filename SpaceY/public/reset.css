@@ -1,0 +1,181 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+  margin: 0;
+  padding: 0;
+}
+header,
+footer,
+section,
+article,
+aside,
+nav,
+hgroup,
+address,
+figure,
+figcaption,
+menu,
+details {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption,
+th {
+  text-align: left;
+  font-weight: normal;
+}
+html,
+body,
+fieldset,
+img,
+iframe,
+abbr {
+  border: 0;
+}
+i,
+cite,
+em,
+var,
+address,
+dfn {
+  font-style: normal;
+}
+[hidefocus],
+summary {
+  outline: 0;
+}
+li {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  font-size: 100%;
+}
+sup,
+sub {
+  font-size: 83%;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: inherit;
+}
+q:before,
+q:after {
+  content: none;
+}
+textarea {
+  overflow: auto;
+  resize: none;
+}
+label,
+summary {
+  cursor: default;
+}
+a,
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: bold;
+}
+del,
+ins,
+u,
+s,
+a,
+a:hover {
+  text-decoration: none;
+}
+body,
+textarea,
+input,
+button,
+select,
+keygen,
+legend {
+  font:
+    12px/1.14 arial,
+    \5b8b\4f53;
+  color: #333;
+  outline: 0;
+}
+body {
+  background: #fff;
+}
+a,
+a:hover {
+  color: #333;
+}
+/* 强制干掉 body 的 flex 布局！让页面恢复正常！*/
+body {
+  display: block !important;
+  min-height: auto !important;
+}
+
+#app {
+  width: 100% !important;
+  display: block !important;
+}
+/* ========== 强制根治页面缩进、居中、宽度限制 ========== */
+/* 干掉body的flex居中布局，恢复原生默认 */
+body {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #000 !important; /* 你想要的黑色背景 */
+}
+
+/* 干掉#app所有内边距、grid布局，强制铺满全屏 */
+#app {
+  width: 100vw !important; /* 直接占满浏览器可视窗口全屏宽度 */
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important; /* 删掉该死的32px左右内边距！ */
+  display: block !important; /* 干掉grid布局 */
+}
