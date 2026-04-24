@@ -1,3 +1,11 @@
+<template>
+  <button class="menu__button">
+    <span>
+      <slot>Reserve Trip →</slot>
+    </span>
+  </button>
+</template>
+
 <style scoped>
 /* <reset-style> ============================ */
 button {
@@ -24,23 +32,20 @@ button {
   transition: background-color .4s;
 }
 
+/*  hover 背景变白 */
 .menu__button:hover {
   background-color: #fff;
 }
 
 .menu__button span {
+  /* ✅ 默认文字是白色 */
   color: #fff;
   line-height: 1;
   transition: color .4s;
 }
 
+/* ✅ hover 时文字变黑 */
 .menu__button:hover span {
   color: #000;
 }
 </style>
-
-<template>
-  <button class="menu__button">
-    <span>Reserve Trip →</span>
-  </button>
-</template>

@@ -7,15 +7,24 @@
     </div>
 
     <div class="right">
-      <img :src="logo" class="logo">
+      <img :src="logo" class="logo" @click="handleClick">
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 import logo from '@/assets/素材/test.png'
 
 import pix from '@/assets/素材/pixel-art-32x32.svg'
+
+const handleClick = () => {
+  router.push('/')
+}
 </script>
 
 <style scoped lang="scss">
