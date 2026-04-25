@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left">
-      <button>Reserve Trip
+      <button @click="toBookTicket">Reserve Trip
         <img :src="pix" alt="Reserve Trip" class="pix">
       </button>
     </div>
@@ -25,6 +25,13 @@ import pix from '@/assets/素材/pixel-art-32x32.svg'
 const handleClick = () => {
   router.push('/')
 }
+
+const toBookTicket = () => {
+  router.push('/bookTicket')
+}
+
+
+
 </script>
 
 <style scoped lang="scss">

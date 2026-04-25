@@ -1,71 +1,75 @@
 <template>
-  <div class="pageContainer">
+  <div class="page-container">
     <Header class="header"></Header>
-    <div class="pageOne">
-      <div class="pageOneLeft">
-        <img :src="Moon" alt="" class="Moon" :class="{ hide: isHidden }" />
-        <div class="PageOnebuttonLeft" :class="{ hide: isHidden }">
+    <div class="page-1">
+      <div class="page-1-left">
+        <img :src="Moon" alt="" class="moon-img" :class="{ hide: isHidden }" />
+        <div class="page-1-btn-left" :class="{ hide: isHidden }">
           <BlackButton @click="moonButtonClick">TO THE MOON →</BlackButton>
         </div>
       </div>
-      <div class="pageOneCenter" :class="{ hide: isHidden }">Choose Your Destination</div>
-      <div class="pageOneRight">
-        <img :src="Mars" alt="" class="Mars" :class="{ hide: isHidden }" />
-        <div class="PageOnebuttonRight" :class="{ hide: isHidden }">
+      <div class="page-1-center" :class="{ hide: isHidden }">Choose Your Destination</div>
+      <div class="page-1-right">
+        <img :src="Mars" alt="" class="mars-img" :class="{ hide: isHidden }" />
+        <div class="page-1-btn-right" :class="{ hide: isHidden }">
           <BlackButton @click="marsButtonClick">TO THE MARS →</BlackButton>
         </div>
       </div>
-      <div class="pageTwo">
-        <!-- 背景图：默认藏在最底层 -->
-        <img :src="bgc2" class="bgc2" :class="{ active: showBackground, hide: hidebgc }" />
-        <!-- 像素碎裂组件：默认藏底层 -->
+      <div class="page-2">
+        <img :src="bgc2" class="bgc-2" :class="{ active: showBackground, hide: hidebgc }" />
         <PixelTransition ref="pixelRef" :class="{ show: pixelShow }" />
-        <img :src="rocket1" class="rocket1" :class="{ active: launchRocket, fly: rocketFlyAway }" />
-        <img :src="rocket2" class="rocket2" :class="{ active: launchRocket, fly: rocketFlyAway }" />
-        <div class="PageTwoCenter" :class="{ active: showPage2Btn, hide: hideTitle2 }">Choose Your Rocket</div>
-        <BlackButton class="PageTwoBlackButtonLeft" :class="{ active: showPage2Btn, hide: hideButton2 }"
+        <img :src="rocket1" class="rocket-1" :class="{ active: launchRocket, fly: rocketFlyAway }" />
+        <img :src="rocket2" class="rocket-2" :class="{ active: launchRocket, fly: rocketFlyAway }" />
+        <div class="page-2-center" :class="{ active: showPage2Btn, hide: hideTitle2 }">Choose Your Rocket</div>
+        <BlackButton class="page-2-btn-left" :class="{ active: showPage2Btn, hide: hideButton2 }"
           @click="Falcon10Click">Falcon 10 →
         </BlackButton>
-        <BlackButton class="PageTwoBlackButtonRight" :class="{ active: showPage2Btn, hide: hideButton2 }"
-          @click="FalconHeavyClick">Falcon
-          Heavy →</BlackButton>
+        <BlackButton class="page-2-btn-right" :class="{ active: showPage2Btn, hide: hideButton2 }"
+          @click="FalconHeavyClick">Falcon Heavy →</BlackButton>
       </div>
-      <div class="pageThree">
-        <img :src="bgc3" class="bgc3" :class="{ active: showBackground2, hide: hidePage3Center }" />
+      <div class="page-3">
+        <img :src="bgc3" class="bgc-3" :class="{ active: showBackground2, hide: hidePage3Center }" />
         <PixelTransition ref="pixelRef2" :class="{ show: pixelShow2 }" />
-        <div class="pageThreeCenter" :class="{ active: showPage3Center, hide: hidePage3Center }">Choose Launch Window
+        <div class="page-3-center" :class="{ active: showPage3Center, hide: hidePage3Center }">Choose Launch Window
         </div>
-        <div class="pageThreeinfo" :class="{ active: showPage3Center, hide: hidePage3Center }">
-          <div class="pageThreeinfoL">Immediate Departure
-            <div class="pageThreeinfoLSub">Next Launch, No Wait</div>
-            <BlackButton class="pageThreeButton" @click="ImmediateDepartureClick">SELECT →</BlackButton>
+        <div class="page-3-info" :class="{ active: showPage3Center, hide: hidePage3Center }">
+          <div class="page-3-info-left">
+            Immediate Departure
+            <div class="page-3-info-sub">Next Launch, No Wait</div>
+            <BlackButton class="page-3-btn" @click="ImmediateDepartureClick">SELECT →</BlackButton>
           </div>
-          <div class="pageThreeinfoM">Premium Scheduled
-            <div class="pageThreeinfoMSub">Custom Date, Private Voyage</div>
-            <BlackButton class="pageThreeButton" @click="PremiumScheduledClick">SELECT →</BlackButton>
+          <div class="page-3-info-middle">
+            Premium Scheduled
+            <div class="page-3-info-sub">Custom Date, Private Voyage</div>
+            <BlackButton class="page-3-btn" @click="PremiumScheduledClick">SELECT →</BlackButton>
           </div>
-          <div class="pageThreeinfoR">Seasonal Cosmic Window
-            <div class="pageThreeinfoRSub">Perfect Route, Ultra-Smooth Flight</div>
-            <BlackButton class="pageThreeButton" @click="SeasonalCosmicWindowClick">SELECT →</BlackButton>
+          <div class="page-3-info-right">
+            Seasonal Cosmic Window
+            <div class="page-3-info-sub">Perfect Route, Ultra-Smooth Flight</div>
+            <BlackButton class="page-3-btn" @click="SeasonalCosmicWindowClick">SELECT →</BlackButton>
           </div>
         </div>
       </div>
-      <div class="pageFour">
-        <img :src="bgc4" class="bgc4" :class="{ active: showBackground4 }" />
-        <BlackButton class="pageFourButton" :class="{ active: showPage4 }" @click="">GENERATE TICKET →</BlackButton>
+      <div class="page-4">
+        <img :src="bgc4" class="bgc-4" :class="{ active: showBackground4 }" />
+        <BlackButton class="page-4-btn" :class="{ active: showPage4 }" @click="generateTicket">GENERATE TICKET →
+        </BlackButton>
         <PixelTransition ref="pixelRef4" :class="{ show: pixelShow4 }" />
-        <div class="pageFourCenter" :class="{ active: showPage4 }">Add-On Mission Services</div>
-        <div class="pageFourinfo" :class="{ active: showPage4 }">
-          <div class="pageFourinfoL">Custom Spacesuit
-            <div class="pageFourinfoLSub">Personalized Embroidered Suit</div>
+        <div class="page-4-center" :class="{ active: showPage4 }">Add-On Mission Services</div>
+        <div class="page-4-info" :class="{ active: showPage4 }">
+          <div class="page-4-info-left">
+            Custom Spacesuit
+            <div class="page-4-info-sub">Personalized Embroidered Suit</div>
             <Checkbox></Checkbox>
           </div>
-          <div class="pageFourinfoM">Surface Excursion
-            <div class="pageFourinfoMSub">Lunar & Martian Terrain Walk</div>
+          <div class="page-4-info-middle">
+            Surface Excursion
+            <div class="page-4-info-sub">Lunar & Martian Terrain Walk</div>
             <Checkbox></Checkbox>
           </div>
-          <div class="pageFourinfoR">Mission Souvenir Kit
-            <div class="pageFourinfoRSub">Official Badges & Keepsakes</div>
+          <div class="page-4-info-right">
+            Mission Souvenir Kit
+            <div class="page-4-info-sub">Official Badges & Keepsakes</div>
             <Checkbox></Checkbox>
           </div>
         </div>
@@ -82,17 +86,17 @@ import Mars from '@/assets/素材/mars_whymars_d(1).jpg';
 import bgc2 from '@/assets/素材/F9_1.jpg';
 import bgc3 from '@/assets/素材/FH_1.jpg';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'
 import PixelTransition from '@/components/PixelTransition.vue';
 import rocket1 from '@/assets/素材/hls_tanker.png';
 import rocket2 from '@/assets/素材/170008x36ckYY4VneDTJqp.png';
 import bgc4 from '@/assets/素材/HelmetShot_Desktop.jpg';
 import Checkbox from '@/components/checkbox.vue';
 
-
 const isHidden = ref(false);
-const showBackground = ref(false); // 背景图层级
-const showBackground2 = ref(false); // 背景图层级
-const pixelShow = ref(false); // 像素组件层级
+const showBackground = ref(false);
+const showBackground2 = ref(false);
+const pixelShow = ref(false);
 const pixelRef = ref(null);
 const pixelRef2 = ref(null);
 const pixelShow2 = ref(false);
@@ -108,16 +112,13 @@ const showBackground4 = ref(false);
 const pixelShow4 = ref(false);
 const pixelRef4 = ref(null);
 const showPage4 = ref(false);
-const hidePage4 = ref(true);
 
-
+const router = useRouter()
 const data = ref({
   destination: '',
   rocket: '',
   launchWindow: '',
 })
-
-// 1
 
 const moonButtonClick = () => {
   data.value.destination = 'Moon';
@@ -128,7 +129,6 @@ const moonButtonClick = () => {
     setTimeout(() => {
       pixelRef.value?.startAnimation();
     }, 100);
-
   }, 1500);
   setTimeout(() => {
     launchRocket.value = true;
@@ -145,15 +145,12 @@ const marsButtonClick = () => {
     setTimeout(() => {
       pixelRef.value?.startAnimation();
     }, 100);
-
   }, 1500);
   setTimeout(() => {
     launchRocket.value = true;
     showPage2Btn.value = true;
   }, 2500);
 };
-
-// 2
 
 const Falcon10Click = () => {
   hidebgc.value = true;
@@ -172,6 +169,7 @@ const Falcon10Click = () => {
     showPage3Center.value = true;
   }, 2500);
 }
+
 const FalconHeavyClick = () => {
   hidebgc.value = true;
   data.value.rocket = 'Falcon Heavy';
@@ -190,7 +188,6 @@ const FalconHeavyClick = () => {
   }, 2500);
 }
 
-// 3
 const ImmediateDepartureClick = () => {
   hidePage3Center.value = true;
   data.value.launchWindow = 'Immediate Departure';
@@ -205,6 +202,7 @@ const ImmediateDepartureClick = () => {
     showPage4.value = true;
   }, 2500);
 }
+
 const PremiumScheduledClick = () => {
   hidePage3Center.value = true;
   data.value.launchWindow = 'Premium Scheduled';
@@ -219,6 +217,7 @@ const PremiumScheduledClick = () => {
     showPage4.value = true;
   }, 2500);
 }
+
 const SeasonalCosmicWindowClick = () => {
   hidePage3Center.value = true;
   data.value.launchWindow = 'Seasonal Cosmic Window';
@@ -234,6 +233,16 @@ const SeasonalCosmicWindowClick = () => {
   }, 2500);
 }
 
+const generateTicket = () => {
+  router.push({
+    name: data.value.destination === 'Moon' ? 'moonTicket' : 'marsTicket',
+    query: {
+      destination: data.value.destination,
+      rocket: data.value.rocket,
+      launchWindow: data.value.launchWindow
+    }
+  })
+}
 
 </script>
 
@@ -252,7 +261,12 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 100;
 }
 
-.pageOne {
+.page-container {
+  width: 100%;
+  height: 100%;
+}
+
+.page-1 {
   width: 100%;
   height: 100vh;
   background-color: #000;
@@ -260,7 +274,7 @@ const SeasonalCosmicWindowClick = () => {
   overflow: hidden;
 }
 
-.Moon {
+.moon-img {
   position: absolute;
   top: 50%;
   left: 20%;
@@ -272,13 +286,13 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 2;
 }
 
-.Moon.hide {
+.moon-img.hide {
   transform: translate(-50%, -50%) translateX(-50vh);
   opacity: 0;
   visibility: hidden;
 }
 
-.Mars {
+.mars-img {
   position: absolute;
   top: 50%;
   left: 82%;
@@ -290,14 +304,14 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 2;
 }
 
-.Mars.hide {
+.mars-img.hide {
   transform: translate(-50%, -50%) translateX(50vh);
   opacity: 0;
   visibility: hidden;
 }
 
-.PageOnebuttonLeft,
-.PageOnebuttonRight {
+.page-1-btn-left,
+.page-1-btn-right {
   position: absolute;
   top: 90%;
   transform: translate(-50%, -50%);
@@ -306,21 +320,21 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 3;
 }
 
-.PageOnebuttonLeft {
+.page-1-btn-left {
   left: 20%;
 }
 
-.PageOnebuttonRight {
+.page-1-btn-right {
   left: 82%;
 }
 
-.PageOnebuttonLeft.hide,
-.PageOnebuttonRight.hide {
+.page-1-btn-left.hide,
+.page-1-btn-right.hide {
   opacity: 0;
   visibility: hidden;
 }
 
-.pageOneCenter {
+.page-1-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -333,13 +347,12 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 2;
 }
 
-.pageOneCenter.hide {
+.page-1-center.hide {
   opacity: 0;
   visibility: hidden;
 }
 
-/* 背景图：默认藏在最底部 */
-.bgc2 {
+.bgc-2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -347,27 +360,23 @@ const SeasonalCosmicWindowClick = () => {
   top: 0;
   left: 0;
   z-index: -1;
-  /* 藏在黑色下面 */
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.bgc2.active {
+.bgc-2.active {
   z-index: 5;
-  /* 提升层级 */
   opacity: 1;
 }
 
-.bgc2.hide {
+.bgc-2.hide {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: all 3s;
 }
 
-
-
-.bgc3 {
+.bgc-3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -375,27 +384,23 @@ const SeasonalCosmicWindowClick = () => {
   top: 0;
   left: 0;
   z-index: -1;
-  /* 藏在黑色下面 */
   opacity: 0;
   transition: opacity 0.3s;
 }
 
-.bgc3.active {
-  z-index: 5;
-  opacity: 2;
+.bgc-3.active {
   z-index: 7;
+  opacity: 1;
 }
 
-.bgc3.hide {
+.bgc-3.hide {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: all 3s;
 }
 
-
-
-.rocket1 {
+.rocket-1 {
   position: absolute;
   top: 150%;
   left: 25%;
@@ -406,12 +411,12 @@ const SeasonalCosmicWindowClick = () => {
   transition: all 1.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.rocket1.active {
+.rocket-1.active {
   top: 50%;
   opacity: 1;
 }
 
-.rocket2 {
+.rocket-2 {
   position: absolute;
   top: 150%;
   left: 75%;
@@ -423,20 +428,19 @@ const SeasonalCosmicWindowClick = () => {
   transition: all 1.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.rocket2.active {
+.rocket-2.active {
   top: 50%;
   opacity: 1;
 }
 
-/* 火箭向上飞出屏幕 */
-.rocket1.fly,
-.rocket2.fly {
+.rocket-1.fly,
+.rocket-2.fly {
   top: -50% !important;
   transition: all 3s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-.PageTwoBlackButtonLeft,
-.PageTwoBlackButtonRight {
+.page-2-btn-left,
+.page-2-btn-right {
   position: absolute;
   bottom: 10%;
   z-index: 7;
@@ -446,31 +450,29 @@ const SeasonalCosmicWindowClick = () => {
   pointer-events: none;
 }
 
-.PageTwoBlackButtonLeft {
+.page-2-btn-left {
   left: 22%;
 }
 
-.PageTwoBlackButtonRight {
+.page-2-btn-right {
   right: 20.5%;
 }
 
-.PageTwoBlackButtonLeft.active,
-.PageTwoBlackButtonRight.active {
+.page-2-btn-left.active,
+.page-2-btn-right.active {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.PageTwoBlackButtonLeft.hide,
-.PageTwoBlackButtonRight.hide {
+.page-2-btn-left.hide,
+.page-2-btn-right.hide {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-
-
-.PageTwoCenter {
+.page-2-center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -484,26 +486,24 @@ const SeasonalCosmicWindowClick = () => {
   pointer-events: none;
 }
 
-.PageTwoCenter.active {
+.page-2-center.active {
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
 }
 
-.PageTwoCenter.hide {
+.page-2-center.hide {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.pageThree {
+.page-3 {
   width: 100%;
   height: 100vh;
   position: relative;
 }
 
-
-.pageThreeCenter {
+.page-3-center {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -515,22 +515,20 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 7;
   opacity: 0;
   pointer-events: none;
-
 }
 
-.pageThreeCenter.active {
+.page-3-center.active {
   opacity: 1;
-  visibility: visible;
   pointer-events: auto;
 }
 
-.pageThreeCenter.hide {
+.page-3-center.hide {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-.pageThreeinfo {
+.page-3-info {
   position: absolute;
   top: 58%;
   left: 50%;
@@ -547,21 +545,19 @@ const SeasonalCosmicWindowClick = () => {
   transition: all 1.5s;
 }
 
-.pageThreeinfo.active {
+.page-3-info.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.pageThreeinfo.hide {
+.page-3-info.hide {
   opacity: 0;
   pointer-events: none;
 }
 
-
-
-.pageThreeinfoL,
-.pageThreeinfoM,
-.pageThreeinfoR {
+.page-3-info-left,
+.page-3-info-middle,
+.page-3-info-right {
   flex: 1;
   text-align: center;
   display: flex;
@@ -569,21 +565,18 @@ const SeasonalCosmicWindowClick = () => {
   align-items: center;
 }
 
-.pageThreeinfoLSub,
-.pageThreeinfoMSub,
-.pageThreeinfoRSub {
+.page-3-info-sub {
   font-size: 18px;
   opacity: 0.8;
   margin-top: 5%;
   margin-bottom: 9%;
 }
 
-.pageThreeButton {
+.page-3-btn {
   font-size: 16px;
 }
 
-
-.bgc4 {
+.bgc-4 {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -596,14 +589,14 @@ const SeasonalCosmicWindowClick = () => {
   pointer-events: none;
 }
 
-.bgc4.active {
+.bgc-4.active {
   opacity: 1;
   pointer-events: auto;
   z-index: 7;
   transform: scale(1.1);
 }
 
-.pageFourCenter {
+.page-4-center {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -616,12 +609,12 @@ const SeasonalCosmicWindowClick = () => {
   z-index: 8;
 }
 
-.pageFourCenter.active {
+.page-4-center.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-.pageFourinfo {
+.page-4-info {
   position: absolute;
   top: 58%;
   left: 50%;
@@ -638,15 +631,14 @@ const SeasonalCosmicWindowClick = () => {
   transition: all 1.5s;
 }
 
-.pageFourinfo.active {
+.page-4-info.active {
   opacity: 1;
   pointer-events: auto;
 }
 
-
-.pageFourinfoL,
-.pageFourinfoM,
-.pageFourinfoR {
+.page-4-info-left,
+.page-4-info-middle,
+.page-4-info-right {
   flex: 1;
   text-align: center;
   display: flex;
@@ -654,16 +646,14 @@ const SeasonalCosmicWindowClick = () => {
   align-items: center;
 }
 
-.pageFourinfoLSub,
-.pageFourinfoMSub,
-.pageFourinfoRSub {
+.page-4-info-sub {
   font-size: 16px;
   opacity: 0.8;
   margin-top: 5%;
   margin-bottom: 9%;
 }
 
-.pageFourButton {
+.page-4-btn {
   position: absolute;
   top: 90%;
   left: 50%;
@@ -675,7 +665,7 @@ const SeasonalCosmicWindowClick = () => {
   transition: all 1.5s;
 }
 
-.pageFourButton.active {
+.page-4-btn.active {
   opacity: 1;
   pointer-events: auto;
 }

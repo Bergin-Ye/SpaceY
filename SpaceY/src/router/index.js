@@ -16,6 +16,21 @@ const router = createRouter({
       name: 'test',
       component: () => import('../views/testPage.vue'),
     },
+    {
+      path: '/bookTicket',
+      name: 'bookTicket',
+      component: () => import('../views/bookTicketPage.vue'),
+    },
+    {
+      path: '/moonTicket',
+      name: 'moonTicket',
+      component: () => import('../views/moonTicket.vue'),
+    },
+    {
+      path: '/marsTicket',
+      name: 'marsTicket',
+      component: () => import('../views/MarsTicket.vue'),
+    },
   ],
 })
 
